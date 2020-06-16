@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { View, StyleSheet, Alert } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet } from "react-native";
 import { GiftedChat, Bubble, Send } from "react-native-gifted-chat";
 import { IconButton } from "react-native-paper";
 import firebase from "../config/Firebase";
