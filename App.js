@@ -1,19 +1,51 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import Login from "./src/screens/Login";
+import Chat from "./src/components/Chat";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import createUser from "./src/screens/createUser";
 
-export default function App() {
+// Create the navigator
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="login"
+          component={Login}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="chat"
+          component={Chat}
+          options={{
+            title: "Chat",
+            headerStyle: {
+              backgroundColor: "#fafafa",
+            },
+            headerTintColor: "#64b4cc",
+            headerTitleStyle: {},
+          }}
+        />
+        <Stack.Screen
+          name="createUser"
+          component={createUser}
+          options={{
+            title: "Create User",
+            headerStyle: {
+              backgroundColor: "#fafafa",
+            },
+            headerTintColor: "#64b4cc",
+            headerTitleStyle: {},
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
